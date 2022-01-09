@@ -1,8 +1,6 @@
 from .base_page import BasePage
 from .locators import LoginPageLocators
 
-
-
 class LoginPage(BasePage):
     def register_new_user(self, email, password):
         email_register_input = self.browser.find_element(*LoginPageLocators.EMAIL_REGISTER_INPUT)
