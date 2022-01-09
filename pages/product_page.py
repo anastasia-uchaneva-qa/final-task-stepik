@@ -9,7 +9,14 @@ class ProductPage(BasePage):
         button.click()
 
     def should_be_successful_message(self):
-        assert self.is_element_present(*ProductPageLocators.SUCCSESSFUL_MESSAGE), "Successful message after adding book is not presented"
+        assert self.is_element_present(*ProductPageLocators.SUCCESSFUL_MESSAGE), "Successful message after adding book is not presented"
+
+    def should_not_be_successful_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESSFUL_MESSAGE), \
+            "Success message is presented, but should not be"
+    def should_be_dissappeared_successful_message(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESSFUL_MESSAGE), \
+            "Success message is presented, but should not be"
 
     def should_be_message_with_price(self):
         assert self.is_element_present(*ProductPageLocators.MESSAGE_WITH_PRICE), "Message with price after adding book is not presented"
